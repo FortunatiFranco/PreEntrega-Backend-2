@@ -16,7 +16,7 @@ class CartManager {
 
     getById = async(cid)=>{
         try {
-            const cart = await this.model.findById(cid)
+            const cart = await this.model.findById(cid).populate('products.product')
             if(!cart) return null;
             return cart;
         } catch (error) {
